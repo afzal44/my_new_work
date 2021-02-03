@@ -1,0 +1,15 @@
+<odoo>
+<template id="tmp_as2send_form_success" name="as2send Form Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <div class="alert alert-success">
+                            Message send successfully.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

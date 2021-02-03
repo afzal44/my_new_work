@@ -1,0 +1,12 @@
+[ req ]
+distinguished_name      = req_distinguished_name
+# Stop confirmation prompts. All information is contained below.
+prompt                  = no
+[ req_distinguished_name ]
+countryName=            IN
+stateOrProvinceName=    Uttar Pradesh
+localityName=           My Town
+organizationName=       Some Organisation
+organizationalUnitName= Some Department
+commonName=             www.example.com
+emailAddress=           bofh@example.com

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="tmp_as2send_form" name="as2send Form">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="container">
+                    <div class="col-md-12">
+                        <form action="/as2send/form/submit" method="POST">
+
+                            <div class="form-group">
+                                <label for="organization" class="control-label">Organization:</label>
+                                <select name="organization_id" class="form-control link-style">
+                                    <t t-foreach="organization_rec" t-as="organization">
+                                        <option t-esc="organization.name" t-att-value="organization.id" />
+
+                                    </t>
+
+                                </select>
+<!--                                <input type="text" class="form-control" name="name" id="name" required="true" />-->
+
+                            </div>
+                            <div class="form-group" >
+                                <label for="partners">Partner:</label>
+                                <select name="partner_id" class="form-control link-style">
+                                    <t t-foreach="partner_rec" t-as="partner">
+                                        <option t-esc="partner.name" t-att-value="partner.id" />
+                                    </t>
+
+                                </select>
+<!--                                <input type="email" class="form-control" name="email" id="email" required="true" />-->
+                            </div>
+                            <div class="form-group" >
+                                <div class="col-lg-7 col-md-8">
+<!--                                <div class="col-lg-3 col-md-4 text-right">-->
+                                <label class="col-form-label" for="file">File:</label>
+<!--                                </div>-->
+<!--                                <input type="file"><attribute name="enctype">multipart/form-data</attribute></input>-->
+
+                                <input type="file" name="attachment" enctype="multipart/form-data"
+               accept="text/*,application/pdf"/>
+                                    </div>
+
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </form>
+                    </div>
+                </div>
+              </div>
+          </t>
+    </template>
+    </odoo>

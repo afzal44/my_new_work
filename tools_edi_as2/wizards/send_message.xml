@@ -1,0 +1,83 @@
+<odoo>
+  <data>
+      <!--wizard view -->
+      <record model="ir.ui.view" id="tools_edi_as2.form_wizard">
+      <field name="name"> Send Message </field>
+      <field name="model">msg.sendmsg</field>
+      <field name="arch" type="xml">
+      <form string=">Message Detail">
+                    <sheet>
+
+                        <group >
+                            <field name="Organization" />
+                            <field name="Partner"/>
+                        </group>
+
+                            <group>
+                           <field name="File" widget="binary" filename="file_name" required="1"/>
+                                <field name="file_name" invisible="1"/>
+                        </group>
+
+                    </sheet>
+          <footer>
+                            <button name="send_message" string="Send" type="object" class="oe_highlight"/>
+                            <button special="cancel" string="Cancel" class="oe_highlight"/>
+
+
+          </footer>
+                </form>
+
+      </field>
+    </record>
+
+<!--      Certificate Detail Wizard -->
+       <record model="ir.ui.view" id="tools_edi_as2.form_wizard_certificate">
+      <field name="name"> Certificate Details </field>
+      <field name="model">cert.data</field>
+      <field name="arch" type="xml">
+      <form string=">Certificate Detail">
+                    <sheet>
+ <group name="group_top">
+                        <group name="group_left">
+                            <field name="countryName" placeholder="First 2 Letter"/>
+                            <field name="stateOrProvinceName" placeholder="State Full Name"/>
+                            <field name="localityName" placeholder=" City Full Name"/>
+                            <field name="organizationName" placeholder="Organization Full Name"/>
+                        </group>
+
+                            <group name="group_right">
+                           <field name="organizationalUnitName" placeholder="eg, section"/>
+                                <field name="commonName" placeholder="FQDN or your name"/>
+                                <field name="emailAddress" placeholder="email_address"/>
+                                <field name="passphrase" password="True"/>
+                        </group>
+ </group>
+                    </sheet>
+          <footer>
+                            <button name="generate_cert" string="Generate" type="object" class="oe_highlight"/>
+                            <button special="cancel" string="Cancel" class="oe_highlight"/>
+
+
+          </footer>
+                </form>
+
+      </field>
+    </record>
+
+    <!--      wizard actions -->
+       <record model="ir.actions.act_window" id="tools_edi_as2.action_window_wizard">
+      <field name="name">Send Message</field>
+      <field name="res_model">msg.sendmsg</field>
+      <field name="view_mode">form</field>
+           <field name="view_type">form</field>
+           <field name="target">new</field>
+    </record>
+         <record model="ir.actions.act_window" id="tools_edi_as2.action_window_wizard_cert">
+      <field name="name">Generate Certificate</field>
+      <field name="res_model">cert.data</field>
+      <field name="view_mode">form</field>
+           <field name="view_type">form</field>
+           <field name="target">new</field>
+         </record>
+  </data>
+</odoo>

@@ -1,0 +1,425 @@
+<odoo>
+  <data>
+
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="tools_edi_as2.list">
+      <field name="name"> Private Certificates</field>
+      <field name="model">privatekey.privatekey</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="valid_from"/>
+          <field name="valid_to"/>
+          <field name="serial_number"/>
+        </tree>
+      </field>
+    </record>
+
+<record model="ir.ui.view" id="tools_edi_as2.form">
+      <field name="name"> Private Certificate </field>
+      <field name="model">privatekey.privatekey</field>
+      <field name="arch" type="xml">
+      <form string=">Private Certificate Add">
+                    <sheet>
+                        <group invisible="1">
+                            <field name="name" readonly="1" invisible="1"/>
+                             <field name="valid_from" invisible="1"/>
+                            <field name="valid_to" invisible="1"/>
+                             <field name="serial_number" invisible="1"/>
+                        </group>
+                       <group>
+                            <field name="key" filename="file_name"/>
+                           <field name="file_name" invisible="1"/>
+                         <field name="key_pass" password="True"/>
+                        </group>
+                    </sheet>
+                </form>
+
+      </field>
+    </record>
+       <record model="ir.ui.view" id="tools_edi_as2.list1">
+      <field name="name"> Public Certificates</field>
+      <field name="model">publiccertificate.publiccertificate</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="valid_from"/>
+          <field name="valid_to"/>
+          <field name="serial_number"/>
+        </tree>
+      </field>
+    </record>
+
+<record model="ir.ui.view" id="tools_edi_as2.form1">
+      <field name="name"> Public Certificate </field>
+      <field name="model">publiccertificate.publiccertificate</field>
+      <field name="arch" type="xml">
+      <form string=">Private Certificate Add">
+                    <sheet>
+                        <group invisible="1">
+                            <field name="name" readonly="1" invisible="1"/>
+                             <field name="valid_from" invisible="1"/>
+                            <field name="valid_to" invisible="1"/>
+                             <field name="serial_number" invisible="1"/>
+                        </group>
+                       <group>
+                            <field name="certificate" filename="file_name"/>
+                           <field name="file_name" invisible="1"/>
+                           <field name="certificate_ca" filename="file_name1"/>
+                           <field name="file_name1" invisible="1"/>
+                           <field name="verify_cert" />
+
+                        </group>
+                    </sheet>
+                </form>
+
+      </field>
+    </record>
+
+<!--  Organizations views     -->
+
+       <record model="ir.ui.view" id="tools_edi_as2.list_org">
+      <field name="name"> Organizations</field>
+      <field name="model">organization.organization</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="as2_name"/>
+          <field name="email_address"/>
+
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="tools_edi_as2.form_org">
+      <field name="name"> Organization </field>
+      <field name="model">organization.organization</field>
+      <field name="arch" type="xml">
+      <form string=">Organization Detail">
+           <header>
+              <button name="gen_cert" string="Generate Cert." type="object" class="oe_highlight"/>
+          </header>
+                    <sheet>
+                        <group>
+                        <group >
+                            <field name="name" />
+                             <field name="as2_name" />
+                            <field name="encryption_key" />
+
+                             <field name="confirmation_message" />
+                        </group>
+                       <group>
+
+                            <field name="email_address" widget="email"/>
+                           <field name="signature_key" />
+                        </group>
+                        </group>
+                    </sheet>
+                </form>
+
+      </field>
+    </record>
+
+      <!--  Partners  views     -->
+        <record model="ir.ui.view" id="tools_edi_as2.list_part">
+      <field name="name"> Partners</field>
+      <field name="model">partner.partner</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="as2_name"/>
+            <field name="target_url" widget="url"/>
+            <field name="encryption"/>
+            <field name="encryption_cert"/>
+            <field name="signature"/>
+            <field name="signature_cert"/>
+            <field name="mdn"/>
+             <field name="mdn_mode"/>
+
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="tools_edi_as2.form_part">
+      <field name="name"> Partner </field>
+      <field name="model">partner.partner</field>
+      <field name="arch" type="xml">
+      <form string=">Partner Detail">
+            <header>
+              <button name="send_wizard" string="Send Message" type="object" class="oe_highlight"/>
+          </header>
+          <sheet>
+
+                        <group>
+                        <group >
+                            <field name="name" />
+                             <field name="as2_name" />
+                          <field name="email_address" widget="email"/>
+                             <field name="target_url" widget="url"/>
+
+                        </group>
+                       <group>
+
+                            <field name="subject"/>
+                           <field name="content_type" />
+                           <field name="confirmation_message" />
+                           <field name="exchange_mode"/>
+<!--                           <field name="content_type" />-->
+                        </group>
+                        </group>
+                        <notebook>
+                             <page string="FTP Authentication" name="ftp_auth" attrs="{'invisible': [('exchange_mode','!=','FTP')]}">
+
+
+      <group>
+      <field name="ftp_user" />
+      <field name="ftp_passwd" />
+      </group>
+
+  </page>
+  <page string="Http Authentication" name="http_auth" attrs="{'invisible': [('exchange_mode','!=','EDI_AS2')]}">
+
+      <group>
+    <field name="http_auth" />
+      </group>
+      <group>
+      <field name="http_auth_user" />
+      <field name="http_auth_pass" />
+      </group>
+      <group>
+          <field name="https_verify_ssl" />
+      </group>
+  </page>
+  <page string="Security Settings" name="security_settings" attrs="{'invisible': [('exchange_mode','!=','EDI_AS2')]}">
+ <group>
+          <field name="compress"/>
+ </group>
+      <group>
+           <field name="encryption"/>
+          <field name="encryption_cert"/>
+            <field name="signature"/>
+            <field name="signature_cert"/>
+      </group>
+  </page>
+                        <page string="MDN Settings" name="mdn_settings" attrs="{'invisible': [('exchange_mode','!=','EDI_AS2')]}">
+    <group>
+    <field name="mdn" />
+      </group>
+      <group>
+      <field name="mdn_mode" />
+      <field name="mdn_sign" />
+      </group>
+  </page>
+                             <page string="Advanced Settings" name="advanced_settings" attrs="{'invisible': [('exchange_mode','!=','EDI_AS2')]}">
+    <group>
+    <field name="keep_filename" />
+      </group>
+      <group>
+      <field name="cmd_send" />
+      <field name="cmd_receive" />
+      </group>
+  </page>
+
+</notebook>
+                    </sheet>
+                </form>
+
+      </field>
+    </record>
+<!-- Messages Views -->
+
+       <record model="ir.ui.view" id="tools_edi_as2.list_msg">
+      <field name="name"> Messages </field>
+      <field name="model">message.message</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="message_id"/>
+        <field name="timestamp"/>
+        <field name="status"/>
+        <field name="direction"/>
+        <field name="organization"/>
+        <field name="partner"/>
+        <field name="compressed"/>
+        <field name="encrypted"/>
+        <field name="signed"/>
+        <field name="payload"/>
+<!--        <field name="mdn"/>-->
+
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="tools_edi_as2.form_msg">
+      <field name="name"> Messages </field>
+      <field name="model">message.message</field>
+      <field name="arch" type="xml">
+      <form string=">Organization Detail">
+                    <sheet>
+                        <group>
+                        <group >
+                           <field name="message_id"/>
+        <field name="timestamp"/>
+        <field name="status"/>
+        <field name="direction"/>
+
+
+                            <field name="encrypted"/>
+
+                        </group>
+                       <group>
+                                 <field name="organization"/>
+                             <field name="partner"/>
+<field name="compressed"/>
+
+<field name="payload_name" invisible="1"/>
+        <field name="payload" filename="payload_name"/>
+
+                            <field name="signed"/>
+<!--        <field name="mdn_url"/>-->
+                        </group>
+                        </group>
+                    </sheet>
+                </form>
+
+      </field>
+    </record>
+<!-- MDN Views -->
+
+       <record model="ir.ui.view" id="tools_edi_as2.list_mdn">
+      <field name="name"> MDN </field>
+      <field name="model">mdn.mdn</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="mdn_id"/>
+            <field name="message"/>
+        <field name="timestamp"/>
+        <field name="status"/>
+<!--        <field name="signed"/>-->
+<!--        <field name="return_url"/>-->
+<!--        <field name="headers"/>-->
+<!--        <field name="headers_filename" invisible="1"/>-->
+<!--        <field name="payload"/>-->
+<!--        <field name="payload_filename" invisible="1"/>-->
+
+<!--        <field name="mdn"/>-->
+
+        </tree>
+      </field>
+    </record>
+
+      <record model="ir.ui.view" id="tools_edi_as2.form_mdn">
+      <field name="name"> MDN </field>
+      <field name="model">mdn.mdn</field>
+      <field name="arch" type="xml">
+      <form string=">MDN Detail">
+                    <sheet>
+                        <group>
+                        <group >
+                         <field name="mdn_id"/>
+            <field name="message" />
+        <field name="timestamp"/>
+        <field name="status"/>
+
+
+                           <field name="signed"/>
+
+                        </group>
+                       <group>
+                               <field name="return_url"/>
+        <field name="headers"  filename="headers_filename"/>
+        <field name="headers_filename" invisible="1"/>
+        <field name="payload" filename="payload_filename"/>
+        <field name="payload_filename" invisible="1"/>
+
+<!--        <field name="mdn"/>-->
+<!--        <field name="mdn_url"/>-->
+                        </group>
+                        </group>
+                    </sheet>
+                </form>
+
+      </field>
+    </record>
+    <!-- actions opening views on models -->
+
+       <record model="ir.actions.act_window" id="tools_edi_as2.action_window">
+      <field name="name">Private Certificates</field>
+      <field name="res_model">privatekey.privatekey</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="tools_edi_as2.action_window1">
+      <field name="name">Public Certificates</field>
+      <field name="res_model">publiccertificate.publiccertificate</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+ <record model="ir.actions.act_window" id="tools_edi_as2.action_window_conn">
+      <field name="name">Organizations</field>
+      <field name="res_model">organization.organization</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+       <record model="ir.actions.act_window" id="tools_edi_as2.action_window_conn1">
+      <field name="name">Partners</field>
+      <field name="res_model">partner.partner</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+       <record model="ir.actions.act_window" id="tools_edi_as2.action_window_messages">
+      <field name="name">Messages</field>
+      <field name="res_model">message.message</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+       <record model="ir.actions.act_window" id="tools_edi_as2.action_window_mdn">
+      <field name="name">MDN</field>
+      <field name="res_model">mdn.mdn</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+<!-- Server Actions -->
+
+<!--      <record model="ir.actions.server" id="messaging_send_message">-->
+<!--    <field name="name">Send Message</field>-->
+<!--    <field name="model_id" ref="tools_edi_as2.model_message_message"/>-->
+<!--          <field name="binding_model_id" ref="tools_edi_as2.model_partner_partner"/>-->
+<!--          <field name="binding_type">action</field>-->
+<!--    <field name="state">code</field>-->
+<!--    <field name="code">-->
+
+<!--    </field>-->
+<!--</record>-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Messaging" id="tools_edi_as2.menu_root"/>
+
+    <!-- menu categories -->
+
+
+    <menuitem name="Connections" id="tools_edi_as2.menu_2" parent="tools_edi_as2.menu_root" sequence="1"/>
+         <menuitem name="Certificates" id="tools_edi_as2.menu_1" parent="tools_edi_as2.menu_root" sequence="2"/>
+       <menuitem name="Inbox" id="tools_edi_as2.inbox" parent="tools_edi_as2.menu_root" sequence="0"
+       />
+
+
+    <!-- actions -->
+
+    <menuitem name="Private Certificates" id="tools_edi_as2.menu_1_list" parent="tools_edi_as2.menu_1"
+              action="tools_edi_as2.action_window" sequence="1"/>
+
+      <menuitem name="Public Certificates" id="tools_edi_as2.menu_1_list1" parent="tools_edi_as2.menu_1"
+              action="tools_edi_as2.action_window1" sequence="2"/>
+    <menuitem name="Organizations" id="tools_edi_as2_org" parent="tools_edi_as2.menu_2"
+              action="tools_edi_as2.action_window_conn"/>
+      <menuitem name="Partners" id="tools_edi_as2_Partners" parent="tools_edi_as2.menu_2"
+              action="tools_edi_as2.action_window_conn1"/>
+       <menuitem name="Messages" id="tools_edi_as2.messages" parent="tools_edi_as2.inbox" sequence="0"
+       action="tools_edi_as2.action_window_messages"/>
+      <menuitem name="MDN" id="tools_edi_as2.mdn" parent="tools_edi_as2.inbox" sequence="1"
+       action="tools_edi_as2.action_window_mdn"/>
+<!--      Server Actions -->
+<!--      <menuitem name="Send Message" id="tools_edi_as2.menu_root_server_action" parent="tools_edi_as2.menu_root"-->
+<!--           action="messaging_send_message"/>-->
+
+  </data>
+</odoo>

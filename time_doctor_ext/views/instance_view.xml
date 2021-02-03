@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+   <record model="ir.ui.view" id="time_doctor_ext.time_doctor_instance_list">
+      <field name="name">Time Doctor Instances</field>
+      <field name="model">time_doctor_instance</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+	  <field name="login_id"/>
+	  <field name="password" password="True"/>
+          <field name="token_expire_date"/>
+        </tree>
+      </field>
+    </record>
+
+   <record model="ir.ui.view" id="time_doctor_ext.time_doctor_instance_form">
+      <field name="name">Time Doctor Instances</field>
+      <field name="model">time_doctor_instance</field>
+      <field name="arch" type="xml">
+	<form>
+	  <header>
+	   <button name='login' type='object' string='Login'/>
+	   <button name='sync_users' type='object' string='Sync All Users across Companies'/>
+	   <button name='sync_projects' type='object' string='Sync All Projects and Tasks Companies'/>
+	   <button name='sync_timesheet' type='object' string='Sync Timesheet of All Users across Companies'/>
+	  </header>
+	  <sheet>
+	    <group>
+	     <group>
+              <field name="name"/>
+              <field name="login_id"/>
+	      <field name="password" password="True"/>
+	      <field name="token_expire_date"/>
+             </group>
+             <group>
+	      <field name="time_doctor_user_id"/>
+	      <field name="token" style="word-break: break-all"/>
+             </group>
+            </group>
+            <separator string="Time Doctor Companies"/>
+	      <field name="company_ids" readonly="1"/>
+	  </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="time_doctor_ext.time_doctor_instances_action_window">
+      <field name="name">Time Doctor Instances</field>
+      <field name="res_model">time_doctor_instance</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Time Doctor Instances" id="time_doctor_ext.time_doctor_instances_menu" parent="time_doctor_ext.configuration"
+              action="time_doctor_ext.time_doctor_instances_action_window"/>
+  </data>
+</odoo>

@@ -1,0 +1,113 @@
+<odoo>
+  <data>
+   <record model="ir.ui.view" id="time_doctor_ext.time_doctor_company_list">
+      <field name="name">Time Doctor Companies</field>
+      <field name="model">time_doctor_company</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="creation_date"/>
+          <field name="subscription_expiry_date"/>
+          <field name="odoo_company_id"/>
+          <field name="instance_id"/>
+        </tree>
+      </field>
+    </record>
+
+   <record model="ir.ui.view" id="time_doctor_ext.time_doctor_company_form">
+      <field name="name">Time Doctor Companies</field>
+      <field name="model">time_doctor_company</field>
+      <field name="arch" type="xml">
+	<form>
+	  <sheet>
+	    <group>
+	     <group>
+              <field name="name"/>
+              <field name="instance_id"/>
+              <field name="creation_date"/>
+             </group>
+             <group>
+	      <field name="odoo_company_id"/>
+	      <field name="company_id"/>
+              <field name="subscription_expiry_date"/>
+             </group>
+            </group>
+	    <separator string="Time Doctor Users"/>
+	    <field name="time_doctor_users_ids" readonly="1"/>
+	  </sheet>
+        </form>
+      </field>
+    </record>
+
+
+   <record model="ir.ui.view" id="time_doctor_ext.time_doctor_user_list">
+      <field name="name">Time Doctor Users</field>
+      <field name="model">time_doctor_user</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="user_name"/>
+          <field name="odoo_user_id"/>
+	  <field name="active"/>
+	  <field name="online"/>
+	  <field name="emailconfirmed"/>
+          <field name="is_super_admin"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- <record model="ir.ui.view" id="time_doctor_ext.time_doctor_company_form">
+      <field name="name">Time Doctor Companies</field>
+      <field name="model">time_doctor_company</field>
+      <field name="arch" type="xml">
+	<form>
+	  <sheet>
+	    <group>
+	     <group>
+              <field name="name"/>
+              <field name="instance_id"/>
+              <field name="creation_date"/>
+             </group>
+             <group>
+	      <field name="odoo_company_id"/>
+	      <field name="company_id"/>
+              <field name="subscription_expiry_date"/>
+             </group>
+            </group>
+	    <separator string="Time Doctor Users"/>
+	    <field name="time_doctor_users_ids" readonly="1"/>
+	  </sheet>
+        </form>
+      </field>
+    </record>-->
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="time_doctor_ext.time_doctor_user_action_window">
+      <field name="name">Time Doctor Users</field>
+      <field name="res_model">time_doctor_user</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="time_doctor_ext.time_doctor_companies_action_window">
+      <field name="name">Time Doctor Companies</field>
+      <field name="res_model">time_doctor_company</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+
+    <menuitem name="Time Doctor" id="time_doctor_ext.menu_root"/>
+    
+    <!-- menu categories -->
+    <menuitem name="Timesheet" id="time_doctor_ext.timesheet" parent="time_doctor_ext.menu_root"/>
+    <menuitem name="Configurations" id="time_doctor_ext.configuration" parent="time_doctor_ext.menu_root"/>
+
+    <!-- actions -->
+    <menuitem name="Time Doctor Users" id="time_doctor_ext.time_doctor_user_menu" parent="time_doctor_ext.configuration"
+	     sequence="0"
+              action="time_doctor_ext.time_doctor_user_action_window"/>
+
+    <menuitem name="Time Doctor Companies" id="time_doctor_ext.time_doctor_companies_menu" parent="time_doctor_ext.configuration"
+	     sequence="1"
+              action="time_doctor_ext.time_doctor_companies_action_window"/>
+  </data>
+</odoo>

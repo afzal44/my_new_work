@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_privatekey_privatekey,privatekey.privatekey,model_privatekey_privatekey,,1,1,1,1
+access_publiccertificate_publiccertificate,publiccertificate.publiccertificate,model_publiccertificate_publiccertificate,,1,1,1,1
+access_organization_organization,organization.organization,model_organization_organization,,1,1,1,1
+access_partner_partner,partner.partner,model_partner_partner,,1,1,1,1
+access_message_message,message.message,model_message_message,,1,1,1,1
+access_mdn_mdn,mdn.mdn,model_mdn_mdn,,1,1,1,1

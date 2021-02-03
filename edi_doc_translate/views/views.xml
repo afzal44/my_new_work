@@ -1,0 +1,95 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="edi_doc_list">
+      <field name="name">edi_doc list</field>
+      <field name="model">edi_doc</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="organization"/>
+          <field name="partner"/>
+        </tree>
+      </field>
+    </record>
+<record model="ir.ui.view" id="edi_content_mapping_list">
+      <field name="name">edi_code_detail_list</field>
+      <field name="model">edi_code_detail</field>
+      <field name="arch" type="xml">
+        <tree create="false">
+            <field name="seg_name"/>
+          <field name="pos_name"/>
+            <field name="seg_id"/>
+
+            <field name="req_state"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="edi_doc_action_window">
+      <field name="name">edi_doc window</field>
+      <field name="res_model">edi_doc</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+ <record model="ir.actions.act_window" id="edi_content_mapping_action_window">
+      <field name="name">Document window</field>
+      <field name="res_model">edi_code_detail</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+<!-- search views -->
+<!--      <record id="edi_doc_search_view" model="ir.ui.view">-->
+<!--          <field name="name">edi_doc Search View</field>-->
+<!--          <field name="model">edi_content_mapping</field>-->
+<!--          <field name="arch" type="xml">-->
+<!--              <search string="Search edi_doc">-->
+<!--                  <field name="code"/>-->
+<!--                  <field name="name"/>-->
+<!--&lt;!&ndash;                  <field name="nationality"/>&ndash;&gt;-->
+<!--           <filter string="Invoice" name="code" domain="[('code','=','810')]" help="Documents with code as 810"/>-->
+<!--&lt;!&ndash;           <filter string="Female" name="female" domain="[('gender','=','female')]" help="Students with gender as Female"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <filter string="Others" name="others" domain="[('gender','=','others')]" help="Students with gender as Others"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                  <group expand="1" string="Group By">&ndash;&gt;-->
+<!--&lt;!&ndash;                      <filter string="Nationality" name="nationality" context="{'group_by':'nationality'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                      <filter string="Blood Group" name="blood_group" context="{'group_by':'student_blood_group'}"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                  </group>       &ndash;&gt;-->
+<!--              </search>-->
+<!--          </field>-->
+<!--      </record>-->
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="edi_doc_translate.action_server">
+      <field name="name">edi_doc_translate server</field>
+      <field name="model_id" ref="model_edi_doc_translate_edi_doc_translate"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+
+    <menuitem name="edi_doc_translate" id="edi_doc_menu_root"/>
+
+    <!-- menu categories -->
+<!--    <menuitem name="Menu" id="edi_doc_menu_1" parent="edi_doc_menu_root"/>-->
+<!--    <menuitem name="Menu 2" id="edi_doc_translate.menu_2" parent="edi_doc_translate.menu_root"/>-->
+
+    <!-- actions -->
+
+    <menuitem name="EDI Doc" id="edi_doc_menu_1_list" parent="edi_doc_menu_root"
+              action="edi_doc_action_window"/>
+    <menuitem name="EDI Content Mapping" id="edi_content_mapping_menu_1_list" parent="edi_doc_menu_root"
+              action="edi_content_mapping_action_window" sequence="10"/>
+<!--    <menuitem name="Server to list" id="edi_doc_translate" parent="edi_doc_translate.menu_2"-->
+<!--              action="edi_doc_translate.action_server"/>-->
+<!-- -->
+  </data>
+</odoo>

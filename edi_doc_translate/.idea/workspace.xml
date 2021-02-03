@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fda63d8f-2277-416c-b798-0708f5b15bc7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_002.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_003.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_004.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_005.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_006.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_007.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_008.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_009.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_010.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/icon_011.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_002.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_002.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_003.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_editor.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_editor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_editor_002.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_editor_002.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/edi_log.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/form_views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tools_edi_as2/wizards/ssl_conf.cnf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/__manifest__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/controllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/demo/cron.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/models/client_partner.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/models/organisation.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/pyas2lib/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/pyas2lib/as2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/pyas2lib/cms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/pyas2lib/constants.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/pyas2lib/exceptions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/pyas2lib/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools_edi_as2/base_requirement.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tools_edi_as2/base_requirement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools_edi_as2/models/config_edi.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tools_edi_as2/models/config_edi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools_edi_as2/models/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tools_edi_as2/models/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools_edi_as2/views/views.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tools_edi_as2/views/views.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools_edi_as2/wizards/send_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/../tools_edi_as2/wizards/send_message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tools_edi_as2/wizards/send_message.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tools_edi_as2/wizards/send_message.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../wayfair_ept/models/sale_order.py" beforeDir="false" afterPath="$PROJECT_DIR$/../wayfair_ept/models/sale_order.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1nf9VYP2vi0ovQlptXU2ELFbLj1" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fda63d8f-2277-416c-b798-0708f5b15bc7" name="Default Changelist" comment="" />
+      <created>1611770301934</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1611770301934</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>

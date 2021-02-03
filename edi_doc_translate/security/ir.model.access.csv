@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_edi_edi_doc,edi_doc,model_edi_doc,,1,1,1,1
+access_edi_content_mapping,edi_content_mapping,model_edi_content_mapping,,1,1,1,1
+access_edi_code_detail,edi_code_detail,model_edi_code_detail,,1,1,1,1

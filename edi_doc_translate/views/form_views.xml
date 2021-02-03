@@ -1,0 +1,111 @@
+<odoo>
+    		<record id="edi_doc_edi_doc_view" model="ir.ui.view">
+			<field name="name">edi_doc_view</field>
+			<field name="model">edi_doc</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+<!--						<field name="image" widget="image" class="oe_left oe_avatar"/>-->
+<!--						 <h2><field name="name" placeholder="Name"/></h2>-->
+						 <group string="Document Details">
+						 	<group>
+                                <field name="name"/>
+						 		<field name="models"/>
+						 		<field name="prefix"/>
+<!--									<field name="edi_doc_id"/>-->
+
+<!--						 		<field name="course_id"/>-->
+						 	</group>
+						 	<group>
+						 		<field name="organization"/>
+						 		<field name="partner"/>
+								<field name="code"/>
+								<field name="delimiter"/>
+<!--						 		<field name="is_physically_disabled"/>-->
+<!--						 		<field name="hobby_ids" widget="many2many_tags"></field>-->
+						 	</group>
+						 </group>
+						<separator string="Data Header Mapping" colspan="4"/>
+						 <field name="data" widget="many2many" >
+						   <tree >
+							   <field name="seg_name"/>
+							   <field name="pos_name"/>
+            <field name="seg_id"/>
+
+            <field name="req_state"/>
+						   </tree>
+						 </field>
+
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+
+	<record model="ir.ui.view" id="form_part_inherited">
+    <field name="name">partner.partner inherited form</field>
+    <field name="model">partner.partner</field>
+    <field name="inherit_id" ref="tools_edi_as2.form_part"/>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+	<field name="partner_id" />
+</xpath>
+    </field>
+</record>
+
+    <record id="edi_content_mapping_view" model="ir.ui.view">
+			<field name="name">Template Detail</field>
+			<field name="model">edi_code_detail</field>
+			<field name="arch" type="xml">
+				<form create="false">
+					<sheet>
+<!--						<field name="image" widget="image" class="oe_left oe_avatar"/>-->
+						 <h2><field name="seg_identifier" placeholder="Segment Identifier"/></h2>
+						 <group string="Segment Information">
+						 	<group>
+						 		<field name="pos_name"/>
+						 		<field name="seg_id"/>
+								<field name="eai_req"/>
+								<field name="repeat"/>
+
+
+						 	</group>
+							 <group>
+						 		<field name="seg_name"/>
+						 		<field name="req_state"/>
+								 <field name="max_use"/>
+								 <field name="edi_doc_id" invisible="1"/>
+								 	<field name="delimiter"/>
+
+						 	</group>
+
+                         </group>
+						<separator string="Data Segment Mapping" colspan="4"/>
+						 <field name="data" context="{'active_id':edi_doc_id}">
+						   <tree editable="bottom">
+							    <field name="ref"/>
+							   <field name="ref_id" />
+						     <field name="description"/>
+						     <field name="req"/>
+						     <field name="type"/>
+						     <field name="min_max"/>
+						     <field name="val_comm"/>
+
+							   <field name="nature"/>
+							   <field name="edi_code_id" invisible="1"/>
+							   <field name="fields_mapping" attrs="{'required': [('nature', '=', 'eval')],'invisible':[('nature','=','fixed')]}"/>
+
+
+
+						   </tree>
+						 </field>
+                    </sheet>
+                </form>
+            </field>
+    </record>
+<!--						 		<field name="is_physically_disabled"/>-->
+<!--						 		<field name="hobby_ids" widget="many2many_tags"></field>-->
+
+</odoo>
