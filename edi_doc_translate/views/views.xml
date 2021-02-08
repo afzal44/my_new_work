@@ -19,6 +19,7 @@
       <field name="arch" type="xml">
         <tree create="false">
             <field name="seg_name"/>
+            <field name="code" />
           <field name="pos_name"/>
             <field name="seg_id"/>
 

@@ -26,6 +26,7 @@
       <change afterPath="$PROJECT_DIR$/../Reporting/static/src/img/P2 - Odoo_files/web_editor_002.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/models/edi_log.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/views/form_views.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/views/tools_edi_as2_inherited_views.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../tools_edi_as2/wizards/ssl_conf.cnf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../odoo_EDI_AS2/__manifest__.py" beforeDir="false" />

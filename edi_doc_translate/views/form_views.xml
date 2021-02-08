@@ -43,17 +43,7 @@
 
 
 
-	<record model="ir.ui.view" id="form_part_inherited">
-    <field name="name">partner.partner inherited form</field>
-    <field name="model">partner.partner</field>
-    <field name="inherit_id" ref="tools_edi_as2.form_part"/>
-    <field name="type">form</field>
-    <field name="arch" type="xml">
-        <xpath expr="//field[@name='name']" position="after">
-	<field name="partner_id" />
-</xpath>
-    </field>
-</record>
+
 
     <record id="edi_content_mapping_view" model="ir.ui.view">
 			<field name="name">Template Detail</field>
@@ -68,6 +58,7 @@
 						 		<field name="pos_name"/>
 						 		<field name="seg_id"/>
 								<field name="eai_req"/>
+								<field name="code"/>
 								<field name="repeat"/>
 
 

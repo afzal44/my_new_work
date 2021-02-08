@@ -1,0 +1,39 @@
+<odoo>
+<record model="ir.ui.view" id="form_part_inherited">
+    <field name="name">partner.partner inherited form</field>
+    <field name="model">partner.partner</field>
+    <field name="inherit_id" ref="tools_edi_as2.form_part"/>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+	<field name="partner_id" />
+</xpath>
+    </field>
+</record>
+
+    <record model="ir.ui.view" id="form_org_inherited">
+    <field name="name">partner.partner inherited form</field>
+    <field name="model">organization.organization</field>
+    <field name="inherit_id" ref="tools_edi_as2.form_org"/>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='name']" position="after">
+	<field name="partner_id" />
+</xpath>
+    </field>
+</record>
+
+<record model="ir.ui.view" id="form_msg_inherited">
+    <field name="name">message.message inherited form</field>
+    <field name="model">message.message</field>
+    <field name="inherit_id" ref="tools_edi_as2.form_msg"/>
+    <field name="type">form</field>
+    <field name="arch" type="xml">
+        <xpath expr="//field[@name='organization']" position="after">
+	<field name="rec_id" />
+            <field name="model_name" />
+
+</xpath>
+    </field>
+</record>
+    </odoo>

@@ -29,6 +29,7 @@
         'views/views.xml',
         'demo/cron.xml',
         'views/templates.xml',
+        'views/tools_edi_as2_inherited_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
